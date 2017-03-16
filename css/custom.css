@@ -1,0 +1,115 @@
+/*-----------------------------------------------------------------------------------*/
+/*	GENERAL
+/*-----------------------------------------------------------------------------------*/
+ul,ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+a {
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+}
+input::-moz-focus-inner {
+    border: 0;
+}
+a:hover, a:active, a:focus {
+    text-decoration: none;
+    outline: none;
+}
+@keyframes avt_hover {
+    from {
+        border: 2px solid rgba(44,142,241,0);
+    }
+    to {
+        border: 2px solid rgba(44,142,241,1);
+    }
+}
+/*-----------------------------------------------------------------------------------*/
+/*  HEADER
+/*-----------------------------------------------------------------------------------*/
+header {
+    height: 50px;
+    /*background-color: #8eff64;*/
+    border-bottom: 1px solid rgba(0,0,0,0.15)
+}
+header img {
+    max-height: 50px;
+}
+.header_r {
+    padding: 5px 0;
+}
+.avt_small, .avt_large {
+    border: 2px solid rgba(255,255,255,1);
+}
+.avt_small:hover, .avt_large:hover {
+    border: 2px solid rgba(44,142,241,1);
+}
+.fc_header .search_query {
+    padding: 5px 20px;
+}
+.fc_header input[type="text"] {
+    min-width: 400px;
+    height: 39px;
+    background-color: #f5f8fa;
+    border: 1px solid #e6ecf0;
+    border-radius: 20px;
+    padding-left: 20px;
+}
+.fc_body {
+    background-color: #f5f8fa;
+    padding-top: 15px;
+    min-height: 760px;
+}
+.fcl, .fcr {
+    background-color: #fff;
+    border: 1px solid #e6ecf0;
+    border-radius: 5px;
+}
+.fcl_infouser {
+    padding: 10px 0;
+    border-bottom: 1px solid #e6ecf0;
+}
+.fcl_useravt {
+    padding: 20px;
+}
+.fcl_username a {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(44,142,241);
+}
+.fcl_username a:hover {
+    color: rgb(35,120,206);
+}
+.menu_group {
+    padding: 0;
+    margin: 0;
+}
+.menu_group li {
+    list-style-type: none;
+    margin: 0;
+}
+.title_panel {
+    border-bottom: 1px solid gray;
+    padding-top: 10px;
+}
+.list_item {
+    height: 47px;
+    padding: 3px 0;
+    border-bottom: 1px solid gray;
+}
+.list_item img {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+.list_item p {
+    margin-bottom: 0;
+}
+.fc_footer {
+    background-color: #222428;
+    color: white;
+}
