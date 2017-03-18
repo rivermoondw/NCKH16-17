@@ -1,7 +1,7 @@
 <div class="col-md-3 fcl">
     <div class="col-md-12 fcl_infouser">
         <div class="fcl_useravt text-center">
-            <img src="images/16904922_1681057578860437_6883583468305233941_o.jpg" height="200" width="200" class="img-circle avt_large"/>
+            <img src="<?php echo base_url();?>images/16904922_1681057578860437_6883583468305233941_o.jpg" height="200" width="200" class="img-circle avt_large"/>
         </div> <!-- /.fcl_useravt -->
         <div class="fcl_username text-center">
             <a href="#">Hoàng Vũ Lộc</a>

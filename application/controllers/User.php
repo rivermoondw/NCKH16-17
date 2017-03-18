@@ -20,7 +20,7 @@ class User extends MY_Controller {
         if ($this->form_validation->run() === false)
         {
             $this->load->helper('form');
-            $this->load->view('user/login_view');
+            $this->render('user/login_view');
         }
         else
         {
