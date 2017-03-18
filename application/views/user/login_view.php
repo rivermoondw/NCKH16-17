@@ -1,3 +1,4 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed');?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en">
@@ -10,7 +11,7 @@
 <!--[if gt IE 8]><!-->
 <html> <!--<![endif]-->
 <head>
-    <title><?php echo $pagetitle;?></title>
+    <title>Family Caretaker</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
 
@@ -29,9 +30,24 @@
             Nội dung giới thiệu
         </div>
         <div class="col-md-5">
-            <?php
+            <div class="login_form">
+                <?php
+                echo isset($_SESSION['auth_message']) ? $_SESSION['auth_message'] : FALSE;
+                echo form_open();
+                echo form_label('Tài khoản:','taikhoan').'<br/>';
+                echo form_error('taikhoan');
+                echo form_input('taikhoan').'<br/>';
+                echo form_label('Mật khẩu:','matkhau').'<br/>';
+                echo form_error('matkhau');
+                echo form_password('matkhau').'<br/>';
+                echo form_checkbox('remember','1',FALSE).' Ghi nhớ<br/>';
+                echo form_submit('submit','Đăng nhập');
+                echo form_close();
+                ?>
+            </div>
+            <div class="register_form">
 
-            ?>
+            </div>
         </div>
     </div>
 </div>

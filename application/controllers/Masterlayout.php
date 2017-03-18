@@ -8,8 +8,8 @@
 
         public function index(){
             $this->load->helper('url');
-            $data['title'] = 'Trang chủ';
-            $this->load->view('master-layout',$data);
+            $data['pagetitle'] = 'Trang chủ';
+            $this->load->view('master_view',$data);
         }
     }
 ?>
