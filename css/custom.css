@@ -113,3 +113,9 @@ header img {
     background-color: #222428;
     color: white;
 }
+.fclogin_heading {
+    margin-bottom: 15px;
+}
+.fclogin_left {
+    padding-left: 20px;
+}

@@ -24,29 +24,45 @@
     <script src="<?php echo base_url();?>bootstrap/js/bootstrap.js"></script>
 </head>
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col-md-7">
-            Nội dung giới thiệu
-        </div>
-        <div class="col-md-5">
-            <div class="login_form">
-                <?php
-                echo isset($_SESSION['auth_message']) ? $_SESSION['auth_message'] : FALSE;
-                echo form_open();
-                echo form_label('Tài khoản:','taikhoan').'<br/>';
-                echo form_error('taikhoan');
-                echo form_input('taikhoan').'<br/>';
-                echo form_label('Mật khẩu:','matkhau').'<br/>';
-                echo form_error('matkhau');
-                echo form_password('matkhau').'<br/>';
-                echo form_checkbox('remember','1',FALSE).' Ghi nhớ<br/>';
-                echo form_submit('submit','Đăng nhập');
-                echo form_close();
-                ?>
+<div class="wrapper">
+    <div class="container ">
+        <div class="row">
+            <div class="col-md-7 fclogin_right">
+                <p>Nội dung giới thiệu</p>
             </div>
-            <div class="register_form">
+            <div class="col-md-5 fclogin_left">
+                <h1 class="fclogin_heading">Đăng nhập</h1>
+                <div class="login_form">
+                    <?php
+                    echo isset($_SESSION['auth_message']) ? $_SESSION['auth_message'] : FALSE;
+                    echo form_open();
+                    echo form_error('taikhoan');
+                    $tk = array(
+                        'name' => 'taikhoan',
+                        'placeholder' => 'Tên đăng nhập',
+                        'class' => 'form-control',
+                    );
+                    echo form_input($tk).'<br/>';
+                    $mk = array(
+                        'name' => 'matkhau',
+                        'placeholder' => 'Mật khẩu',
+                        'class' => 'form-control'
+                    );
+                    echo form_error('matkhau');
+                    echo form_password($mk).'<br/>';
+                    echo form_checkbox('remember','1',FALSE).' Ghi nhớ<br/>';
+                    $sm = array(
+                        'name' => 'submit',
+                        'value' => 'Đăng nhập',
+                        'class' => 'btn btn-primary'
+                    );
+                    echo form_submit($sm);
+                    echo form_close();
+                    ?>
+                </div>
+                <div class="register_form">
 
+                </div>
             </div>
         </div>
     </div>

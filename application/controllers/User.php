@@ -13,14 +13,14 @@ class User extends MY_Controller {
     }
     public function login()
     {
-        $this->data['title'] = 'Login';
+        $this->data['pagetitle'] = 'Login';
         $this->load->library('form_validation');
         $this->form_validation->set_rules('taikhoan','Tài khoản','trim|required');
         $this->form_validation->set_rules('matkhau','Mật khẩu','trim|required');
         if ($this->form_validation->run() === false)
         {
             $this->load->helper('form');
-            $this->render('user/login_view');
+            $this->load->view('user/login_view');
         }
         else
         {
