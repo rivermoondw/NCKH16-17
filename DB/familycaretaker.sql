@@ -1,23 +1,23 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.9
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Dec 12, 2016 at 03:17 PM
--- Server version: 5.5.20
--- PHP Version: 5.3.10
+-- Host: 127.0.0.1
+-- Generation Time: Mar 28, 2017 at 10:03 AM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 5.6.30
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `familycaretaker`
+-- Database: `famylicaretaker`
 --
 
 -- --------------------------------------------------------
@@ -26,17 +26,18 @@ SET time_zone = "+00:00";
 -- Table structure for table `bacsi`
 --
 
-CREATE TABLE IF NOT EXISTS `bacsi` (
-  `bacsi_id` int(11) NOT NULL AUTO_INCREMENT,
-  `hodem` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `ten` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+CREATE TABLE `bacsi` (
+  `bacsi_id` int(11) NOT NULL,
+  `hoten` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `sdt` varchar(12) COLLATE utf8_unicode_ci DEFAULT NULL,
   `mota` text COLLATE utf8_unicode_ci,
-  `danhgia` tinyint(4) DEFAULT NULL,
-  `khoa_id` int(11) NOT NULL,
-  PRIMARY KEY (`bacsi_id`),
-  KEY `khoa_id` (`khoa_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+  `like` int(11) DEFAULT NULL,
+  `khoa_id` int(11) DEFAULT NULL,
+  `thanhpho_id` int(11) DEFAULT NULL,
+  `huyen_id` int(11) DEFAULT NULL,
+  `xa_id` int(11) DEFAULT NULL,
+  `diachi` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -44,14 +45,151 @@ CREATE TABLE IF NOT EXISTS `bacsi` (
 -- Table structure for table `benhvien`
 --
 
-CREATE TABLE IF NOT EXISTS `benhvien` (
-  `benhvien_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `benhvien` (
+  `benhvien_id` int(11) NOT NULL,
   `benhvien` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `sdt` varchar(12) COLLATE utf8_unicode_ci DEFAULT NULL,
   `diachi` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `mota` text COLLATE utf8_unicode_ci,
-  `danhgia` tinyint(4) DEFAULT NULL,
-  PRIMARY KEY (`benhvien_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+  `like` int(11) DEFAULT NULL,
+  `thanhpho_id` int(11) DEFAULT NULL,
+  `huyen_id` int(11) DEFAULT NULL,
+  `xa_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `chitietlskb`
+--
+
+CREATE TABLE `chitietlskb` (
+  `chitiet_id` int(11) NOT NULL,
+  `lskb_d` int(11) NOT NULL,
+  `trieuchung_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ci_sessions`
+--
+
+CREATE TABLE `ci_sessions` (
+  `id` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `ip_address` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `timestamp` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `data` blob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `ci_sessions`
+--
+
+INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
+('32obe9ssqa1bccnf1q5tl97jnqi6hr6c', '::1', 1489811708, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438393831313730383b),
+('pg5eg9e815hsv5qtl5ieqmqariq5ctsl', '::1', 1489817751, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438393831373534323b),
+('ddm86je6kd4dt13oggc0osd4l93f94m1', '::1', 1489824240, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438393832343139333b),
+('eggct6gi1bq02pu6ok4lvei5sngsa17q', '::1', 1489824794, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438393832343630343b),
+('9a48nmv0dtobkrsc9pfraub9o4c7ov72', '::1', 1489825432, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438393832353136303b),
+('1uiia3ipdgqu4o929c6d79a4n7qvqrvc', '::1', 1489825837, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438393832353535363b),
+('43f84t2k3fvq901vd23i9ipfhnl62uf9', '::1', 1489826214, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438393832353937313b),
+('vegho2etpm2spu8q0t6mfq0hsru1ocdd', '::1', 1489826328, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438393832363332313b),
+('jjjgps54e4ngvvbm2epahlgefp6ucf8q', '::1', 1489827064, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438393832363836373b),
+('dinns6a7c6d5iald6hldj0rcqf3jdvs2', '::1', 1489827448, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438393832373238323b),
+('3pt1586t7p97tepcoqq2omn1h5stlb63', '::1', 1489827973, 0x5f5f63695f6c6173745f726567656e65726174657c693a313438393832373638353b),
+('7b3abaiedu29i7e8mcnp9q5886l8nj0r', '::1', 1490232907, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303233323637343b),
+('3arhcle9ncpglfikbk00gakh1bg27i38', '::1', 1490233498, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303233333230313b),
+('8pv634uk694ii8iot9hd06tseqikibg1', '::1', 1490233741, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303233333535373b),
+('gobq7kk4dkp4i1ictctp3b3vplsfsd3p', '::1', 1490234020, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303233333936343b),
+('2tbfg4u8hpo4noli3n60bve07kv08kih', '::1', 1490238651, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303233383533303b),
+('hdc8179iagq7kra8aipjppo20kmuj6sf', '::1', 1490239079, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303233383838323b),
+('p5edsgcgkqneql7qqpljcvu9svv7c9e2', '::1', 1490239602, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303233393331393b),
+('j1lpd2ucin2ditg17v90kigopv6sjuds', '::1', 1490239679, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303233393637383b),
+('t6uol1mbco2dsgigs3bhr9dblh0tn5g6', '::1', 1490240478, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303234303434343b),
+('e3l5tmal2t13264breiacg6fqlas6tgh', '::1', 1490240977, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303234303736313b),
+('v7rgd4l3sqjlsv498u48jquur3qkpvu9', '::1', 1490241473, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303234313137363b),
+('e9us7in533avmfecb98ehe2m3na2rqkf', '::1', 1490242688, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303234323638373b),
+('vul2a8a5pgaeekda3dedgcb1prkjpabb', '::1', 1490243329, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303234333036383b),
+('kmupvm7dv2dg7gaietpe15kprktblk5e', '::1', 1490243464, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303234333433373b),
+('aubiml2rkolfthn4bv5jqo77qic042mh', '::1', 1490244220, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303234343035393b617574685f6d6573736167657c733a32323a223c703e496e636f7272656374204c6f67696e3c2f703e223b5f5f63695f766172737c613a313a7b733a31323a22617574685f6d657373616765223b733a333a226f6c64223b7d),
+('hr4frelfkfev59p5ukfb3qc3lm1ntgbu', '::1', 1490244734, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303234343533353b617574685f6d6573736167657c733a32323a223c703e496e636f7272656374204c6f67696e3c2f703e223b5f5f63695f766172737c613a313a7b733a31323a22617574685f6d657373616765223b733a333a226f6c64223b7d),
+('edsk9pcj1eo9dk13t6sfpfb2mt3aftmu', '::1', 1490245211, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303234343939393b),
+('ambqmkpnppqfmcuof24n69u5rshr99vp', '::1', 1490245584, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303234353334363b617574685f6d6573736167657c733a32323a223c703e496e636f7272656374204c6f67696e3c2f703e223b5f5f63695f766172737c613a313a7b733a31323a22617574685f6d657373616765223b733a333a226f6c64223b7d),
+('qbobin3balucd2k9ufgd9mk5bmmjd3tb', '::1', 1490247874, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303234373837343b),
+('6t0bugsheqop0paacgr0jcv6i4k2801g', '::1', 1490502847, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303530323638363b),
+('c7slv7jec4rhblsq6afu3ncs6k6erqi6', '::1', 1490503616, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303530333335333b),
+('tfga44md461b9m276na68rfc4mptb8dl', '::1', 1490503987, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303530333735373b),
+('3k5j4h836uvlboj2a431vaot1q39p6tr', '::1', 1490504199, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303530343038343b),
+('ngd2tnv9ejhtonadhbcb04490jhj8c94', '::1', 1490504561, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303530343437363b),
+('j32mcnnd8528hechhjkl7qj0fpdtamcf', '::1', 1490536797, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303533363639363b),
+('h4ee6mri3cri2hepvgsd7gg9fhgr2dvq', '::1', 1490538259, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303533373936313b),
+('a6sosuu0f8l56cqp4eqkqaeh4o65a7ie', '::1', 1490538624, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303533383332343b),
+('n7fd93tlq19v2gl9macq6c3kllsslfsk', '::1', 1490539010, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303533383734323b),
+('909jv421su6gvqq9c89v2reavqu6bshk', '::1', 1490539642, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303533393334333b),
+('nr8n6nbi49vs63pgcnbr2mvqpduv9vr0', '::1', 1490539726, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303533393636343b6964656e746974797c733a363a2261646d696e31223b757365726e616d657c733a363a2261646d696e31223b656d61696c7c733a31363a22646f63746f7240676d61696c2e636f6d223b757365725f69647c733a313a2235223b6f6c645f6c6173745f6c6f67696e7c4e3b6c6173745f636865636b7c693a313439303533393637323b),
+('g09m9q6i1h7g4i0eiqkjttmeeukvn46s', '::1', 1490541202, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303534313138343b6964656e746974797c733a363a2261646d696e31223b757365726e616d657c733a363a2261646d696e31223b656d61696c7c733a31363a22646f63746f7240676d61696c2e636f6d223b757365725f69647c733a313a2235223b6f6c645f6c6173745f6c6f67696e7c4e3b6c6173745f636865636b7c693a313439303533393637323b),
+('op4js32updnlu99fe60sokrjiuffe386', '::1', 1490622051, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303632313738353b6964656e746974797c733a363a2261646d696e31223b757365726e616d657c733a363a2261646d696e31223b656d61696c7c733a31363a22646f63746f7240676d61696c2e636f6d223b757365725f69647c733a313a2235223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231343930363231373931223b6c6173745f636865636b7c693a313439303632323035313b),
+('l95qs1652htt7cl4fhom1ckk433b0bge', '::1', 1490622415, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303632323135303b6964656e746974797c733a363a2261646d696e31223b757365726e616d657c733a363a2261646d696e31223b656d61696c7c733a31363a22646f63746f7240676d61696c2e636f6d223b757365725f69647c733a313a2235223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231343930363232333434223b6c6173745f636865636b7c693a313439303632323431343b),
+('4nbuok60a5grecbdsdj23je69ks1pl00', '::1', 1490622669, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303632323533333b6964656e746974797c733a363a2261646d696e31223b757365726e616d657c733a363a2261646d696e31223b656d61696c7c733a31363a22646f63746f7240676d61696c2e636f6d223b757365725f69647c733a313a2235223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231343930363232353539223b6c6173745f636865636b7c693a313439303632323636393b),
+('brtdubu3cv13ubmblkndahg5km8dbrgg', '::1', 1490622901, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303632323835303b6964656e746974797c733a363a2261646d696e31223b757365726e616d657c733a363a2261646d696e31223b656d61696c7c733a31363a22646f63746f7240676d61696c2e636f6d223b757365725f69647c733a313a2235223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231343930363232383735223b6c6173745f636865636b7c693a313439303632323930313b),
+('1jdmsqb0qsnkasle65nlsu46dlov231a', '::1', 1490625345, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303632353131313b6964656e746974797c733a363a2261646d696e31223b757365726e616d657c733a363a2261646d696e31223b656d61696c7c733a31363a22646f63746f7240676d61696c2e636f6d223b757365725f69647c733a313a2235223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231343930363232383735223b6c6173745f636865636b7c693a313439303632323930313b),
+('afqj45ehav8kc9ho9pme3hi1snv4k5ls', '::1', 1490625728, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303632353433303b6964656e746974797c733a363a2261646d696e31223b757365726e616d657c733a363a2261646d696e31223b656d61696c7c733a31363a22646f63746f7240676d61696c2e636f6d223b757365725f69647c733a313a2235223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231343930363232383735223b6c6173745f636865636b7c693a313439303632323930313b),
+('ubsm7ndvflth4dk2m3qdr1v8t3qd99dr', '::1', 1490626145, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303632353834363b6964656e746974797c733a363a2261646d696e31223b757365726e616d657c733a363a2261646d696e31223b656d61696c7c733a31363a22646f63746f7240676d61696c2e636f6d223b757365725f69647c733a313a2235223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231343930363232383735223b6c6173745f636865636b7c693a313439303632323930313b),
+('1atb17rqa7ej6ulc721939nb1j2ksait', '::1', 1490626226, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303632363138363b6964656e746974797c733a363a2261646d696e31223b757365726e616d657c733a363a2261646d696e31223b656d61696c7c733a31363a22646f63746f7240676d61696c2e636f6d223b757365725f69647c733a313a2235223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231343930363232383735223b6c6173745f636865636b7c693a313439303632323930313b),
+('i8jefbsjp77sp6p1reb8qq2tq13p80i2', '::1', 1490626840, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303632363636353b6964656e746974797c733a363a2261646d696e31223b757365726e616d657c733a363a2261646d696e31223b656d61696c7c733a31363a22646f63746f7240676d61696c2e636f6d223b757365725f69647c733a313a2235223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231343930363232383735223b6c6173745f636865636b7c693a313439303632323930313b),
+('hd1hte96f541p0tvvduo8kud5d7np1qb', '::1', 1490627414, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303632373133373b6964656e746974797c733a363a2261646d696e31223b757365726e616d657c733a363a2261646d696e31223b656d61696c7c733a31363a22646f63746f7240676d61696c2e636f6d223b757365725f69647c733a313a2235223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231343930363232383735223b6c6173745f636865636b7c693a313439303632323930313b),
+('sr2nbq55ja29kru1eseun8i5j5g4tvfa', '::1', 1490627757, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303632373634333b6964656e746974797c733a363a2261646d696e31223b757365726e616d657c733a363a2261646d696e31223b656d61696c7c733a31363a22646f63746f7240676d61696c2e636f6d223b757365725f69647c733a313a2235223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231343930363232383735223b6c6173745f636865636b7c693a313439303632323930313b),
+('lpkthdmu74otarip64art79ukqpeqj5g', '::1', 1490628282, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303632383039333b6964656e746974797c733a363a2261646d696e31223b757365726e616d657c733a363a2261646d696e31223b656d61696c7c733a31363a22646f63746f7240676d61696c2e636f6d223b757365725f69647c733a313a2235223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231343930363232383735223b6c6173745f636865636b7c693a313439303632323930313b),
+('50mpsrn3r3hnr5ei9h310tug7dulsc11', '::1', 1490658931, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303635383738343b),
+('7rja20lktvemr7ttctc05hp11s4lgl58', '::1', 1490659520, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303635393232333b6964656e746974797c733a363a2261646d696e31223b757365726e616d657c733a363a2261646d696e31223b656d61696c7c733a31363a22646f63746f7240676d61696c2e636f6d223b757365725f69647c733a313a2235223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231343930363232393031223b6c6173745f636865636b7c693a313439303635393232383b),
+('qo4pvtcju4oum30qrenv76g8mi7tkuuk', '::1', 1490659615, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303635393534303b6964656e746974797c733a363a2261646d696e31223b757365726e616d657c733a363a2261646d696e31223b656d61696c7c733a31363a22646f63746f7240676d61696c2e636f6d223b757365725f69647c733a313a2235223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231343930363232393031223b6c6173745f636865636b7c693a313439303635393232383b),
+('12b58oal0otp5l8o1u0navqinjbjojq0', '::1', 1490660298, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303636303231323b6964656e746974797c733a363a2261646d696e31223b757365726e616d657c733a363a2261646d696e31223b656d61696c7c733a31363a22646f63746f7240676d61696c2e636f6d223b757365725f69647c733a313a2235223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231343930363232393031223b6c6173745f636865636b7c693a313439303635393232383b),
+('v16s0a45bm04osr859u28850qbaonhvm', '::1', 1490660666, 0x5f5f63695f6c6173745f726567656e65726174657c693a313439303636303636363b6964656e746974797c733a363a2261646d696e31223b757365726e616d657c733a363a2261646d696e31223b656d61696c7c733a31363a22646f63746f7240676d61696c2e636f6d223b757365725f69647c733a313a2235223b6f6c645f6c6173745f6c6f67696e7c733a31303a2231343930363232393031223b6c6173745f636865636b7c693a313439303635393232383b);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `giadinh`
+--
+
+CREATE TABLE `giadinh` (
+  `giadinh_id` int(11) NOT NULL,
+  `giadinh` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `mota` text COLLATE utf8_unicode_ci,
+  `soluong` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `groups`
+--
+
+CREATE TABLE `groups` (
+  `id` mediumint(8) UNSIGNED NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `description` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `groups`
+--
+
+INSERT INTO `groups` (`id`, `name`, `description`) VALUES
+(1, 'admin', 'Administrator'),
+(2, 'members', 'General User');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `huyen`
+--
+
+CREATE TABLE `huyen` (
+  `huyen_id` int(11) NOT NULL,
+  `huyen` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -59,31 +197,50 @@ CREATE TABLE IF NOT EXISTS `benhvien` (
 -- Table structure for table `khoa`
 --
 
-CREATE TABLE IF NOT EXISTS `khoa` (
-  `khoa_id` int(11) NOT NULL AUTO_INCREMENT,
-  `khoa` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `mota` text COLLATE utf8_unicode_ci,
-  `benhvien_id` int(11) NOT NULL,
-  PRIMARY KEY (`khoa_id`),
-  KEY `benhvien_id` (`benhvien_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+CREATE TABLE `khoa` (
+  `khoa_id` int(11) NOT NULL,
+  `tenkhoa` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `mota` text COLLATE utf8_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `lichsukhambenh`
+-- Table structure for table `login_attempts`
 --
 
-CREATE TABLE IF NOT EXISTS `lichsukhambenh` (
-  `lichsu_id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `login_attempts` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `ip_address` varchar(15) NOT NULL,
+  `login` varchar(100) NOT NULL,
+  `time` int(11) UNSIGNED DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lskb`
+--
+
+CREATE TABLE `lskb` (
+  `lskb_id` int(11) NOT NULL,
+  `tieude` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `ngaykham` date DEFAULT NULL,
   `chandoan` text COLLATE utf8_unicode_ci,
   `ketqua` text COLLATE utf8_unicode_ci,
-  `donthuoc` text COLLATE utf8_unicode_ci,
-  `thanhvien_id` int(11) NOT NULL,
-  PRIMARY KEY (`lichsu_id`),
-  KEY `thanhvien_id` (`thanhvien_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+  `hinhanh` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `ngaynhap` date DEFAULT NULL,
+  `taikhoan_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `lskb`
+--
+
+INSERT INTO `lskb` (`lskb_id`, `tieude`, `ngaykham`, `chandoan`, `ketqua`, `hinhanh`, `ngaynhap`, `taikhoan_id`) VALUES
+(1, 'tieude1', NULL, NULL, NULL, NULL, NULL, NULL),
+(2, 'tieude2', NULL, NULL, NULL, NULL, NULL, NULL),
+(3, 'tieude3', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -91,37 +248,47 @@ CREATE TABLE IF NOT EXISTS `lichsukhambenh` (
 -- Table structure for table `taikhoan`
 --
 
-CREATE TABLE IF NOT EXISTS `taikhoan` (
-  `taikhoan_id` int(11) NOT NULL AUTO_INCREMENT,
-  `taikhoan` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
-  `matkhau` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
-  `hodem` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `ten` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
+CREATE TABLE `taikhoan` (
+  `id` int(11) NOT NULL,
+  `username` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `hoten` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
   `diachi` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `diem` int(11) DEFAULT NULL,
-  `phanquyen` tinyint(4) DEFAULT NULL,
-  PRIMARY KEY (`taikhoan_id`),
-  UNIQUE KEY `taikhoan` (`taikhoan`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+  `sdt` varchar(12) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `giadinh_id` int(11) DEFAULT NULL,
+  `thanhpho_id` int(11) DEFAULT NULL,
+  `huyen_id` int(11) DEFAULT NULL,
+  `xa_id` int(11) DEFAULT NULL,
+  `ip_address` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
+  `salt` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `activation_code` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `forgotten_password_code` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `forgotten_password_time` int(10) UNSIGNED DEFAULT NULL,
+  `remember_code` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_on` int(10) UNSIGNED NOT NULL,
+  `last_login` int(10) UNSIGNED DEFAULT NULL,
+  `active` tinyint(3) UNSIGNED DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `taikhoan`
+--
+
+INSERT INTO `taikhoan` (`id`, `username`, `password`, `hoten`, `diachi`, `sdt`, `email`, `giadinh_id`, `thanhpho_id`, `huyen_id`, `xa_id`, `ip_address`, `salt`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`) VALUES
+(4, 'admin', 'admin', NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL),
+(5, 'admin1', '$2y$08$hu1bAT6q8/dsmU4K4z7wTe56ODJc2YlpvxNWocO.VZPqjih1kk7mm', NULL, NULL, NULL, 'doctor@gmail.com', NULL, NULL, NULL, NULL, '::1', NULL, NULL, NULL, NULL, NULL, 1490539578, 1490659228, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `thanhvien`
+-- Table structure for table `thanhpho`
 --
 
-CREATE TABLE IF NOT EXISTS `thanhvien` (
-  `thanhvien_id` int(11) NOT NULL AUTO_INCREMENT,
-  `hodem` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `ten` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `ngaysinh` date DEFAULT NULL,
-  `gioitinh` varchar(5) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `cmt` varchar(12) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `sdt` varchar(12) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `taikhoan_id` int(11) NOT NULL,
-  PRIMARY KEY (`thanhvien_id`),
-  KEY `taikhoan_id` (`taikhoan_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+CREATE TABLE `thanhpho` (
+  `thanhpho_id` int(11) NOT NULL,
+  `thanhpho` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -129,27 +296,225 @@ CREATE TABLE IF NOT EXISTS `thanhvien` (
 -- Table structure for table `trieuchung`
 --
 
-CREATE TABLE IF NOT EXISTS `trieuchung` (
-  `trieuchung_id` int(11) NOT NULL AUTO_INCREMENT,
-  `trieuchung` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`trieuchung_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+CREATE TABLE `trieuchung` (
+  `trieuchung_id` int(11) NOT NULL,
+  `trieuchung` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `trieuchung_benh`
+-- Table structure for table `users_groups`
 --
 
-CREATE TABLE IF NOT EXISTS `trieuchung_benh` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `trieuchung_id` int(11) DEFAULT NULL,
-  `lichsu_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `lichsu_id` (`lichsu_id`),
-  KEY `trieuchung_id` (`trieuchung_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+CREATE TABLE `users_groups` (
+  `id` int(11) UNSIGNED NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `group_id` mediumint(8) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `users_groups`
+--
+
+INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
+(1, 4, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `xa`
+--
+
+CREATE TABLE `xa` (
+  `xa_id` int(11) NOT NULL,
+  `xa` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `bacsi`
+--
+ALTER TABLE `bacsi`
+  ADD PRIMARY KEY (`bacsi_id`),
+  ADD KEY `bacsi_ibfk_1` (`khoa_id`),
+  ADD KEY `bacsi_ibfk_2` (`thanhpho_id`),
+  ADD KEY `bacsi_ibfk_3` (`huyen_id`),
+  ADD KEY `bacsi_ibfk_4` (`xa_id`);
+
+--
+-- Indexes for table `benhvien`
+--
+ALTER TABLE `benhvien`
+  ADD PRIMARY KEY (`benhvien_id`),
+  ADD KEY `benhvien_ibfk_1` (`thanhpho_id`),
+  ADD KEY `benhvien_ibfk_2` (`huyen_id`),
+  ADD KEY `benhvien_ibfk_3` (`xa_id`);
+
+--
+-- Indexes for table `chitietlskb`
+--
+ALTER TABLE `chitietlskb`
+  ADD PRIMARY KEY (`chitiet_id`),
+  ADD KEY `chitietlskb_ibfk_1` (`lskb_d`),
+  ADD KEY `chitietlskb_ibfk_2` (`trieuchung_id`);
+
+--
+-- Indexes for table `ci_sessions`
+--
+ALTER TABLE `ci_sessions`
+  ADD KEY `ci_sessions_timestamp` (`timestamp`);
+
+--
+-- Indexes for table `giadinh`
+--
+ALTER TABLE `giadinh`
+  ADD PRIMARY KEY (`giadinh_id`);
+
+--
+-- Indexes for table `groups`
+--
+ALTER TABLE `groups`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `huyen`
+--
+ALTER TABLE `huyen`
+  ADD PRIMARY KEY (`huyen_id`);
+
+--
+-- Indexes for table `khoa`
+--
+ALTER TABLE `khoa`
+  ADD PRIMARY KEY (`khoa_id`);
+
+--
+-- Indexes for table `login_attempts`
+--
+ALTER TABLE `login_attempts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `lskb`
+--
+ALTER TABLE `lskb`
+  ADD PRIMARY KEY (`lskb_id`),
+  ADD KEY `taikhoan_id` (`taikhoan_id`);
+
+--
+-- Indexes for table `taikhoan`
+--
+ALTER TABLE `taikhoan`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `taikhoan_ibfk_1` (`giadinh_id`),
+  ADD KEY `taikhoan_ibfk_2` (`huyen_id`),
+  ADD KEY `taikhoan_ibfk_3` (`thanhpho_id`),
+  ADD KEY `taikhoan_ibfk_4` (`xa_id`);
+
+--
+-- Indexes for table `thanhpho`
+--
+ALTER TABLE `thanhpho`
+  ADD PRIMARY KEY (`thanhpho_id`);
+
+--
+-- Indexes for table `trieuchung`
+--
+ALTER TABLE `trieuchung`
+  ADD PRIMARY KEY (`trieuchung_id`);
+
+--
+-- Indexes for table `users_groups`
+--
+ALTER TABLE `users_groups`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `uc_users_groups` (`user_id`,`group_id`),
+  ADD KEY `fk_users_groups_groups1_idx` (`group_id`);
+
+--
+-- Indexes for table `xa`
+--
+ALTER TABLE `xa`
+  ADD PRIMARY KEY (`xa_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `bacsi`
+--
+ALTER TABLE `bacsi`
+  MODIFY `bacsi_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `benhvien`
+--
+ALTER TABLE `benhvien`
+  MODIFY `benhvien_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `chitietlskb`
+--
+ALTER TABLE `chitietlskb`
+  MODIFY `chitiet_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `giadinh`
+--
+ALTER TABLE `giadinh`
+  MODIFY `giadinh_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `groups`
+--
+ALTER TABLE `groups`
+  MODIFY `id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `huyen`
+--
+ALTER TABLE `huyen`
+  MODIFY `huyen_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `khoa`
+--
+ALTER TABLE `khoa`
+  MODIFY `khoa_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `login_attempts`
+--
+ALTER TABLE `login_attempts`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `lskb`
+--
+ALTER TABLE `lskb`
+  MODIFY `lskb_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `taikhoan`
+--
+ALTER TABLE `taikhoan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `thanhpho`
+--
+ALTER TABLE `thanhpho`
+  MODIFY `thanhpho_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `trieuchung`
+--
+ALTER TABLE `trieuchung`
+  MODIFY `trieuchung_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `users_groups`
+--
+ALTER TABLE `users_groups`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `xa`
+--
+ALTER TABLE `xa`
+  MODIFY `xa_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
@@ -158,32 +523,47 @@ CREATE TABLE IF NOT EXISTS `trieuchung_benh` (
 -- Constraints for table `bacsi`
 --
 ALTER TABLE `bacsi`
-  ADD CONSTRAINT `bacsi_ibfk_1` FOREIGN KEY (`khoa_id`) REFERENCES `khoa` (`khoa_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `bacsi_ibfk_1` FOREIGN KEY (`khoa_id`) REFERENCES `khoa` (`khoa_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `bacsi_ibfk_2` FOREIGN KEY (`thanhpho_id`) REFERENCES `thanhpho` (`thanhpho_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `bacsi_ibfk_3` FOREIGN KEY (`huyen_id`) REFERENCES `huyen` (`huyen_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `bacsi_ibfk_4` FOREIGN KEY (`xa_id`) REFERENCES `xa` (`xa_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints for table `khoa`
+-- Constraints for table `benhvien`
 --
-ALTER TABLE `khoa`
-  ADD CONSTRAINT `khoa_ibfk_1` FOREIGN KEY (`benhvien_id`) REFERENCES `benhvien` (`benhvien_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `benhvien`
+  ADD CONSTRAINT `benhvien_ibfk_1` FOREIGN KEY (`thanhpho_id`) REFERENCES `thanhpho` (`thanhpho_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `benhvien_ibfk_2` FOREIGN KEY (`huyen_id`) REFERENCES `huyen` (`huyen_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `benhvien_ibfk_3` FOREIGN KEY (`xa_id`) REFERENCES `xa` (`xa_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints for table `lichsukhambenh`
+-- Constraints for table `chitietlskb`
 --
-ALTER TABLE `lichsukhambenh`
-  ADD CONSTRAINT `lichsukhambenh_ibfk_1` FOREIGN KEY (`thanhvien_id`) REFERENCES `thanhvien` (`thanhvien_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `chitietlskb`
+  ADD CONSTRAINT `chitietlskb_ibfk_1` FOREIGN KEY (`lskb_d`) REFERENCES `lskb` (`lskb_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `chitietlskb_ibfk_2` FOREIGN KEY (`trieuchung_id`) REFERENCES `trieuchung` (`trieuchung_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints for table `thanhvien`
+-- Constraints for table `lskb`
 --
-ALTER TABLE `thanhvien`
-  ADD CONSTRAINT `thanhvien_ibfk_1` FOREIGN KEY (`taikhoan_id`) REFERENCES `taikhoan` (`taikhoan_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `lskb`
+  ADD CONSTRAINT `lskb_ibfk_1` FOREIGN KEY (`taikhoan_id`) REFERENCES `taikhoan` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints for table `trieuchung_benh`
+-- Constraints for table `taikhoan`
 --
-ALTER TABLE `trieuchung_benh`
-  ADD CONSTRAINT `trieuchung_benh_ibfk_1` FOREIGN KEY (`lichsu_id`) REFERENCES `lichsukhambenh` (`lichsu_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `trieuchung_benh_ibfk_2` FOREIGN KEY (`trieuchung_id`) REFERENCES `trieuchung` (`trieuchung_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `taikhoan`
+  ADD CONSTRAINT `taikhoan_ibfk_1` FOREIGN KEY (`giadinh_id`) REFERENCES `giadinh` (`giadinh_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `taikhoan_ibfk_2` FOREIGN KEY (`huyen_id`) REFERENCES `huyen` (`huyen_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `taikhoan_ibfk_3` FOREIGN KEY (`thanhpho_id`) REFERENCES `thanhpho` (`thanhpho_id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `taikhoan_ibfk_4` FOREIGN KEY (`xa_id`) REFERENCES `xa` (`xa_id`) ON DELETE CASCADE ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `users_groups`
+--
+ALTER TABLE `users_groups`
+  ADD CONSTRAINT `fk_users_groups_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `users_groups_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `taikhoan` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

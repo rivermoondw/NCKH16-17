@@ -11,7 +11,7 @@
 <!--[if gt IE 8]><!-->
 <html> <!--<![endif]-->
 <head>
-    <title>Login</title>
+    <title>Register</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
 
@@ -50,7 +50,20 @@
                     );
                     echo form_error('password');
                     echo form_password($mk).'<br/>';
-                    echo form_checkbox('remember','1',FALSE).' Ghi nhớ<br/>';
+                    $xnmk = array(
+                        'name' => 'confirm_password',
+                        'placeholder' => 'Xác nhận mật khẩu',
+                        'class' => 'form-control'
+                    );
+                    echo form_error('confirm_password');
+                    echo form_password($xnmk).'<br/>';
+                    $em = array(
+                        'name' => 'email',
+                        'placeholder' => 'Email',
+                        'class' => 'form-control'
+                    );
+                    echo form_error('email');
+                    echo form_input($em).'<br/>';
                     $sm = array(
                         'name' => 'submit',
                         'value' => 'Đăng nhập',

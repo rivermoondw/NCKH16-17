@@ -7,10 +7,16 @@ class MY_Controller extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->library('ion_auth');
         $this->data['pagetitle'] = 'CI App';
         $this->data['page_description'] = 'CI_App';
         $this->data['before_closing_head'] = '';
         $this->data['before_closing_body'] = '';
+        if (!$this->ion_auth->logged_in())
+        {
+            // redirect them to the login page
+            redirect('user/login', 'refresh');
+        }
     }
     protected function render($the_view = NULL,$template = 'public_master')
     {
@@ -21,7 +27,7 @@ class MY_Controller extends CI_Controller
         }
         elseif(is_null($template))
         {
-            $this->load-view($the_view,$this->data);
+            $this->load->view($the_view,$this->data);
         }
         else
         {
@@ -36,7 +42,7 @@ class Auth_Controller extends MY_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load-library('ion_auth');
+        $this->load->library('ion_auth');
         if ($this->ion_auth->logged_in()===FALSE)
         {
             redirect('user/login');
