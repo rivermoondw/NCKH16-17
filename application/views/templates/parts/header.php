@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- jvectormap -->
+    <link rel="stylesheet" href="<?php echo base_url();?>plugins/jvectormap/jquery-jvectormap-1.2.2.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?php echo base_url();?>dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -42,8 +44,24 @@
             <div class="col-md-6 search_query">
                 <input type="text">
             </div>
-            <div class="col-md-3 text-right header_r">
-                <img src="<?php echo base_url();?>images/16904922_1681057578860437_6883583468305233941_o.jpg" height="40" width="40" class="img-circle avt_small"/>
+            <div class="col-md-3 text-right header_r dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <img src="<?php echo base_url();?>images/16904922_1681057578860437_6883583468305233941_o.jpg" height="40" width="40" class="img-circle avt_small"/>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="header"></li>
+                    <li>
+                        <!-- inner menu: contains the actual data -->
+                        <ul class="menu">
+                            <li>
+                                <a href="<?php echo base_url().'user/logout' ?>">
+                                    <i class="fa fa-users text-aqua"></i> Đăng xuất
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="footer"><a href="#"></a></li>
+                </ul>
             </div>
         </div>
     </div> <!-- /.fc_innerwrapper -->

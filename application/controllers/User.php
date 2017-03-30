@@ -26,10 +26,10 @@ class User extends MY_Controller
             $this->load->view('user/login_view');
         } else {
             $remember = (bool)$this->input->post('remember');
-            if ($this->ion_auth->login($this->input->post('username'), $this->input->post('password'))) {
+            if ($this->ion_auth->login($this->input->post('username'), $this->input->post('password'),$remember)) {
                 redirect('h');
             } else {
-                redirect('user/login_view');
+                $this->render('user/login_view',NULL);
             }
         }
     }
@@ -37,7 +37,7 @@ class User extends MY_Controller
     public function logout()
     {
         $this->ion_auth->logout();
-        redirect('user/login_view');
+        redirect('/');
     }
 }
 

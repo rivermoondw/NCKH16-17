@@ -11,8 +11,11 @@ class MY_Controller extends CI_Controller
         $this->load->library('ion_auth');
         $this->data['pagetitle'] = 'CI App';
         $this->data['page_description'] = 'CI_App';
-        $this->data['before_closing_head'] = '';
-        $this->data['before_closing_body'] = '';
+        $this->data['before_head'] = '';
+        $this->data['before_body'] = '';
+        /*if (!isset($_SESSION['username'])){
+            redirect('/');
+        }*/
     }
 
     protected function render($the_view = NULL, $template = 'public_master')
