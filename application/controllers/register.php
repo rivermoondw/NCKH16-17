@@ -16,7 +16,7 @@ class Register extends MY_Controller{
                 $password = $this->input->post('password');
                 $email = $this->input->post('email');
                 $this->load->library('ion_auth');
-                if ($this->ion_auth->register($username, $password, $email)) {
+                 if ($this->ion_auth->register($username, $password, $email)) {
                     $_SESSION['auth_message'] = 'Tài khoản đăng kí thành công';
                     $this->session->mark_as_flash('auth_message');
                     redirect('user/login_view');

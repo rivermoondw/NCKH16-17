@@ -5,7 +5,7 @@
             <?php $this->load->view('templates\parts\fcl'); ?>
             <!-- Noi dung cua page -->
             <div class="col-md-6 fcm">
-                <?php /*echo $the_view_content;*/ print_r($the_view_content) ?>
+                <?php echo $the_view_content; ?>
             </div> <!-- /.fcm -->
             <?php $this->load->view('templates/parts/fcr'); ?>
         </div>

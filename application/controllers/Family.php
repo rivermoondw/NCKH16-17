@@ -9,4 +9,7 @@ class Family extends MY_Controller{
     public function index(){
         $this->data['pagetitle'] = 'Gia đình';
     }
+    public function create(){
+        $this->render('family/create_view');
+    }
 }
