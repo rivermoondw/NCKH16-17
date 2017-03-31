@@ -7,7 +7,6 @@ class User_model extends CI_Model
     {
         parent::__construct();
     }
-
     public function get_list_lskb()
     {
         $query = $this->db->select('lskb_id,tieude')->from('lskb')->get();

@@ -7,11 +7,44 @@
             <a href="#">Hoàng Vũ Lộc</a>
         </div> <!-- /.fcl_username -->
     </div> <!-- /.fcl_infouser -->
-    <div class="col-md-12 fcl_basic_menu">
-        <ul class="fcl_menu_group menu_group">
-            <li>Gia đình</li>
-            <li>Lịch sử khám</li>
-            <li>Tìm kiếm</li>
-        </ul> <!-- /.fcl_menu_group -->
+    <div class="col-md-12 fcl_basic_menu sidebar">
+        <ul class="sidebar-menu">
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-dashboard"></i> <span>Gia đình</span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-dashboard"></i> <span>Lịch sử khám bệnh</span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-dashboard"></i> <span>Tìm kiếm</span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-dashboard"></i> <span>Ghi chú</span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+                </ul>
+            </li>
+        </ul>
     </div> <!-- /.fcl_basic_menu -->
 </div> <!-- /.fcl -->

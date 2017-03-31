@@ -1,10 +1,12 @@
-<footer class="fc_footer">
-    <p>Nhóm thực hiện <span style="font-weight: bold">Two Travelers</span></p>
-    <p>Copy right © <?php echo date("Y");?></p>
+<footer class="main-footer">
+    Nhóm thực hiện <a href="#"><span style="font-weight: bold">Two Travelers</span></a>.
+    <strong>Copyright &copy; <?php echo date("Y");?></strong>
 </footer>
 <!-- JavaScrpit -->
-<script src="<?php echo base_url();?>js/jquery-3.1.1.min.js"></script>
-<script src="<?php echo base_url();?>bootstrap/js/bootstrap.js"></script>
+
+<script src="<?php echo base_url();?>plugins/jQuery/jQuery-2.2.0.min.js"></script>
+
+<script src="<?php echo base_url();?>bootstrap/js/bootstrap.min.js"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url();?>plugins/fastclick/fastclick.js"></script>
 <!-- AdminLTE App -->

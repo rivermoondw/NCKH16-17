@@ -73,7 +73,7 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Xác nhận</button>
+                    <button type="submit" class="btn btn-primary btn-block btn-flat" name="submit" value="submit">Xác nhận</button>
                 </div>
                 <!-- /.col -->
             </div>

@@ -11,16 +11,18 @@ class Register extends MY_Controller{
             if ($this->form_validation->run()===FALSE) {
                 $this->load->helper('form');
                 $this->load->view('user/register');
-            } else {
+            }
+            else {
                 $username = $this->input->post('username');
                 $password = $this->input->post('password');
                 $email = $this->input->post('email');
                 $this->load->library('ion_auth');
-                 if ($this->ion_auth->register($username, $password, $email)) {
+                if ($this->ion_auth->register($username, $password, $email)) {
                     $_SESSION['auth_message'] = 'Tài khoản đăng kí thành công';
                     $this->session->mark_as_flash('auth_message');
-                    redirect('user/login_view');
-                } else {
+                    redirect('/');
+                }
+                else {
                     $_SESSION['auth_message'] = $this->ion_auth->errors();
                     $this->session->mark_as_flash('auth_message');
                     redirect('user/register');

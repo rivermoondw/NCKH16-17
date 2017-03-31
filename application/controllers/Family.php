@@ -10,23 +10,24 @@ class Family extends MY_Controller{
         $this->load->model('Family_model');
     }
     public function index(){
-        $this->Family_model->get_list();
+        $result = $this->Family_model->get_giadinh_id($_SESSION['user_id']);
+        foreach ($result as $key => $val){
+            $giadinh_id = $val['giadinh_id'];
+        }
+        $this->data['the_view_content'] = $this->Family_model->get_list('hoten',$giadinh_id);
+        $this->render('family/family_view');
     }
     public function create(){
         $this->load->library('form_validation');
-        $this->form_validation->set_rules('giadinh','Gia đình','trim|required');
-        if ($this->form_validation->run()===FALSE){
+        $this->form_validation->set_rules('giadinh', 'Gia đình', 'trim|required');
+        if ($this->form_validation->run() === FALSE) {
             $this->render('family/create_view');
-        } else{
-            if ($this->input->post('submit')){
-                $giadinh = $this->input->post('giadinh');
-                $mota = $this->input->post('mota');
-                $this->Family_model->create($giadinh,$mota);
-                echo 'Them thanh cong';die;
-            }
-            else{
-                echo 'Loi';die;
-            }
+        }
+        else{
+            $giadinh = $this->input->post('giadinh');
+            $mota = $this->input->post('mota');
+            $this->Family_model->create($giadinh,$mota);
+            redirect('h');
         }
     }
 }
